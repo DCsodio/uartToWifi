@@ -36,8 +36,10 @@ if (WiFi.status() != WL_CONNECTED) {
 }
 webSocket.loop();
 analizarPaquete();
-    if(getNuevoPaquete()){
-        webSocket.sendBIN((uint8_t*)&pkt,sizeof(Paquete));
-        Serial.println("Paquete enviado por WebSocket (binario).");
-    }
+if(nuevoPaquete()){
+    webSocket.sendBIN((uint8_t*)&pkt,sizeof(Paquete));
+    Serial.println("Paquete enviado por WebSocket (binario).");
+}
+
+
 }

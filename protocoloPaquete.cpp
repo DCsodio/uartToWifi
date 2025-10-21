@@ -56,6 +56,6 @@ Paquete getPaquete(void){
     nuevoPaquete=false;
     return pkt;
 }
-bool getNuevoPaquete(void){
+bool nuevoPaquete(void){
     return nuevoPaquete;
 }
