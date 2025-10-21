@@ -5,7 +5,9 @@
 #include <WiFi.h>
 #include <WebSocketsClient.h>
 
-extern uint8_t bufferSocketRx[200];
+#define BUFFER_MAX 200 
+
+extern uint8_t bufferSocketRx[BUFFER_MAX];
 extern bool datoNuevo;
 extern WebSocketsClient webSocket;
 

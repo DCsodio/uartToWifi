@@ -24,6 +24,6 @@ extern Paquete pkt;
 void analizarPaquete(void);
 
 Paquete getPaquete(void);
-bool nuevoPaquete(void);
+bool getNuevaLectura(void);
 
 #endif // PAQUETE_STRUCT_H
