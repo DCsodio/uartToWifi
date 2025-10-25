@@ -10,7 +10,7 @@
 #pragma pack(push, 1)
 typedef struct {
     uint8_t  header[2];
-    bool     analizando;   // no se puede inicializar dentro del struct
+    uint8_t analizando; 
     uint16_t distanciaMm;
     float    grados;
     uint32_t posX;
@@ -20,9 +20,9 @@ typedef struct {
 #pragma pack(pop)
 
 extern Paquete pkt;
-
+extern bool nuevoPaquete;
 void analizarPaquete(void);
-
+uint32_t calcularChecksum(Paquete* pkt);
 Paquete getPaquete(void);
 bool getNuevaLectura(void);
 

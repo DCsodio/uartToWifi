@@ -20,12 +20,12 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
       //recepcion de mensaje
 			Serial.printf("[WSc] get text: %s\n", payload);
 			if (length < BUFFER_MAX) {
-        memcpy(bufferSocketRx, payload, length);
+      	memcpy(bufferSocketRx, payload, length);
         bufferSocketRx[length] = '\0';   // terminar string
         datoNuevo = true;          // aviso que ya tengo dato listo
       }
+			
 			break;
-
 		case WStype_BIN:
 			//aca recibe bytes
       Serial.printf("[WSc] get binary length: %u\n", length);
