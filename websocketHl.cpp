@@ -12,6 +12,11 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
 			break;
 		case WStype_CONNECTED:
 			Serial.printf("[WSc] Connected to url: %s\n", payload);
+			delay(1000);
+			if(WiFi.status() == WL_CONNECTED){
+        Serial.println("INIT SYSTEM...");
+        Serial1.write(">init<",6);
+    }
 
 			//Envia mensaje al servidor
 			webSocket.sendTXT("Connected");

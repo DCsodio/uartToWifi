@@ -24,10 +24,9 @@ void analizarPaquete(void){
             idx++; //leemos todos los bytes restantes
             if(idx>=sizeof(Paquete)){ // si es igual debemos copiarlo
                 memcpy(&pkt,buffer,sizeof(Paquete)); //copiamos buffer en pkt
-                Serial.println("estoy aca");
                 checksum=calcularChecksum(&pkt);
                 if (pkt.checksum==checksum){//SEGUIR LA MAQUINA DE ESTADO
-                    Serial.printf("OK -> %u | %f | %d \n",pkt.distanciaMm, pkt.grados, pkt.analizando);
+                    Serial.printf("OK dist: %u, grados:%f, analizando:%d\n",pkt.distanciaMm, pkt.grados, pkt.analizando);
                     nuevoPaquete=true;
                 
                 }else{
