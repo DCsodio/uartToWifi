@@ -9,6 +9,8 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
 		case WStype_DISCONNECTED:
     //Desconectado
 			Serial.printf("[WSc] Disconnected!\n");
+			Serial.printf("Free heap: %u\n", ESP.getFreeHeap());
+      Serial.printf("WiFi status: %d\n", WiFi.status());
 			break;
 		case WStype_CONNECTED:
 			Serial.printf("[WSc] Connected to url: %s\n", payload);

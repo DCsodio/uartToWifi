@@ -28,10 +28,8 @@ void analizarPaquete(void){
                 if (pkt.checksum==checksum){//SEGUIR LA MAQUINA DE ESTADO
                     Serial.printf("OK dist: %u, grados:%f, analizando:%d\n",pkt.distanciaMm, pkt.grados, pkt.analizando);
                     nuevoPaquete=true;
-                
                 }else{
                     Serial.println("ERROR EN EL CHECKSUM");
-                   
                 }
                 idx=0;
                 headerEncontrado=false;

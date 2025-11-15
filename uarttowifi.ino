@@ -8,13 +8,13 @@
 //ETAPA DE CONEXION WIFI
 //const char* ssid     = "Tenorio";
 //const char* password = "juanita1";
-const char* ssid     = "Senku-2.4Ghz";
-const char* password = "Caroyeze";
+//const char* ssid     = "Senku-2.4Ghz";
+//const char* password = "Caroyeze";
 //const char* ssid     = "Grupo Boldt Guest";
 //const char* password = "01234567890!";
 
-//const char* ssid     = "motog200";
-//const char* password = "caro1234";
+const char* ssid     = "motog200";
+const char* password = "caro1234";
 void setup() {
     //ETAPA UART
     Serial.begin(115200);
@@ -32,7 +32,7 @@ void setup() {
         Serial.print(".");
     }
     Serial.println("\nWiFi conectado");
-    webSocket.begin("192.168.1.63", 12345, "/"); // Cambiá IP y puerto
+    webSocket.begin("10.85.0.73", 12345, "/"); // Cambiá IP y puerto
     webSocket.onEvent(webSocketEvent); //colocamos la maquina de estados
     webSocket.setReconnectInterval(5000); //Tiempo de reconexion 5segundos
 }
@@ -50,6 +50,7 @@ void loop() {
     }
     if(datoNuevo){
         Serial1.write((const char*)bufferSocketRx,strlen((const char*)bufferSocketRx));
+        Serial1.flush();
         datoNuevo=false;
         Serial.println("Datos de wifi enviados por uart al lpc845");
     }
